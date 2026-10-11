@@ -1,0 +1,1 @@
+"""Flaw region detection placeholder."""

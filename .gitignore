@@ -1,0 +1,14 @@
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+data/raw/*
+!data/raw/good/
+data/raw/good/*
+!data/raw/good/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+*.wav

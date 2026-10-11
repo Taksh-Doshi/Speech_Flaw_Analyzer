@@ -1,0 +1,4 @@
+sample_rate: 16000
+hop_ms: 10
+f0_min: 65
+f0_max: 400
