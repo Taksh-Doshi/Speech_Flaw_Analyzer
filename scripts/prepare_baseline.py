@@ -125,6 +125,36 @@ def markdown_cell(value):
     return str(value).replace("|", r"\|").replace("\r", " ").replace("\n", " ")
 
 
+def upsert_dataset_card_row(dataset_card_path, speech_id, row):
+    """Replace rows for a speech ID, or append one if it is not present."""
+    dataset_card_path = Path(dataset_card_path)
+    contents = (
+        dataset_card_path.read_text(encoding="utf-8")
+        if dataset_card_path.exists()
+        else ""
+    )
+    lines = contents.splitlines(keepends=True)
+    matching_indices = []
+    for index, line in enumerate(lines):
+        cells = line.rstrip("\r\n").strip().split("|", 2)
+        if len(cells) > 1 and cells[1].strip() == speech_id:
+            matching_indices.append(index)
+
+    if matching_indices:
+        lines[matching_indices[0]] = row
+        lines = [
+            line
+            for index, line in enumerate(lines)
+            if index == matching_indices[0] or index not in matching_indices
+        ]
+    else:
+        if contents and not contents.endswith(("\n", "\r")):
+            lines.append("\n")
+        lines.append(row)
+
+    dataset_card_path.write_text("".join(lines), encoding="utf-8")
+
+
 def prepare_baseline(args):
     """Convert, transcribe, and record one baseline speech sample."""
     if ID_PATTERN.fullmatch(args.id) is None:
@@ -188,8 +218,7 @@ def prepare_baseline(args):
             "rough alignment from Whisper",
         )
     ) + " |\n"
-    with dataset_card_path.open("a", encoding="utf-8", newline="") as dataset_card:
-        dataset_card.write(row)
+    upsert_dataset_card_row(dataset_card_path, args.id, row)
 
     print(f"Duration: {duration:.3f} seconds")
     print("Transcript:")

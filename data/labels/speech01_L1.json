@@ -1,0 +1,19 @@
+{
+  "speech_id": "speech01",
+  "level": "L1",
+  "file": "data/processed/speech01_L1.wav",
+  "source_file": "data/raw/good/speech01.wav",
+  "flaws": [
+    {
+      "type": "long_pause",
+      "start": 67.84,
+      "end": 68.72,
+      "severity": 0.3,
+      "params": {
+        "original_start": 67.84,
+        "original_end": 67.84,
+        "word_count": 0
+      }
+    }
+  ]
+}

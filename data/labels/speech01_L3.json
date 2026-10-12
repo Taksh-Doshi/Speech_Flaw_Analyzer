@@ -1,0 +1,43 @@
+{
+  "speech_id": "speech01",
+  "level": "L3",
+  "file": "data/processed/speech01_L3.wav",
+  "source_file": "data/raw/good/speech01.wav",
+  "flaws": [
+    {
+      "type": "too_fast",
+      "start": 16.84,
+      "end": 17.9630625,
+      "severity": 0.6,
+      "params": {
+        "rate": 1.3,
+        "original_start": 16.84,
+        "original_end": 18.3,
+        "word_count": 4
+      }
+    },
+    {
+      "type": "missing_pause",
+      "start": 69.9030625,
+      "end": 71.8330625,
+      "severity": 0.6,
+      "params": {
+        "original_start": 70.24,
+        "original_end": 72.38,
+        "word_count": 5
+      }
+    },
+    {
+      "type": "low_volume",
+      "start": 113.2330625,
+      "end": 117.6330625,
+      "severity": 0.6,
+      "params": {
+        "gain_db": -12.4,
+        "original_start": 113.78,
+        "original_end": 118.18,
+        "word_count": 10
+      }
+    }
+  ]
+}

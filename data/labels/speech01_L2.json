@@ -1,0 +1,31 @@
+{
+  "speech_id": "speech01",
+  "level": "L2",
+  "file": "data/processed/speech01_L2.wav",
+  "source_file": "data/raw/good/speech01.wav",
+  "flaws": [
+    {
+      "type": "monotone",
+      "start": 19.08,
+      "end": 24.62,
+      "severity": 0.5,
+      "params": {
+        "original_start": 19.08,
+        "original_end": 24.62,
+        "word_count": 12
+      }
+    },
+    {
+      "type": "too_slow",
+      "start": 62.98,
+      "end": 68.1466875,
+      "severity": 0.4,
+      "params": {
+        "rate": 0.84,
+        "original_start": 62.98,
+        "original_end": 67.32,
+        "word_count": 11
+      }
+    }
+  ]
+}
